@@ -1,0 +1,19 @@
+<html>
+  <h3>front_end</h3>
+  <button onclick="buttonClick()">test</button>
+  <div id="result"></div>
+</html>
+
+<script>
+function buttonClick(){
+  var httpClient = new XMLHttpRequest();
+  httpClient.open("GET", "http://localhost:8030");
+  httpClient.send();
+  httpClient.onreadystatechange = function(){
+  if (httpClient.readyState == 4){
+    let node = document.getElementById("result");
+    node.innerHTML = httpClient.responseText;
+    }
+  }
+}
+</script>

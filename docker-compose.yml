@@ -1,0 +1,14 @@
+version: "2"
+services: 
+  front-end:
+    image: nginx:1.21.0-alpine
+    ports: 
+      - 8100:80
+    volumes:
+      - ./front_end/:/usr/share/nginx/html/
+  back-end:
+    build:
+      context: ./back_end
+    tty: true
+    ports: 
+      - 8030:8000
